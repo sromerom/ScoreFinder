@@ -72,17 +72,19 @@ h1 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#131313', GradientType=1 );
 }
 
-#teclesBlanques {
+.tecles {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  position: relative;
 }
+
 .tecla {
-  width: 50px;
+  width: 7%;
   height: 250px;
   margin-left: 5px;
-  position: relative;
+  float: left;
   background: rgba(255, 255, 255, 1);
   background: -moz-linear-gradient(
     left,
@@ -124,17 +126,10 @@ h1 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
 }
 
-#teclesNegres {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-.teclaNegra {
-  width: 30px;
+.tecla.sust {
+  position: absolute;
+  width: 5%;
   height: 150px;
-  margin-left: 5px;
   background: rgba(0, 0, 0, 1);
   background: -moz-linear-gradient(
     top,
@@ -168,32 +163,27 @@ h1 {
     rgba(54, 54, 54, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#363636', GradientType=0 );
-  z-index: 1;
+  z-index: 3;
 }
 
-#teclaNegra1 {
-  position: absolute;
-  right: -35%;
+.tecla[data-note="do-sust"] {
+  left: 24.5%;
 }
 
-#teclaNegra2 {
-  position: absolute;
-  right: -35%;
+.tecla[data-note="re-sust"] {
+  left: 32%;
 }
 
-#teclaNegra3 {
-  position: absolute;
-  right: -35%;
+.tecla[data-note="fa-sust"] {
+  left: 47.5%;
 }
 
-#teclaNegra4 {
-  position: absolute;
-  right: -35%;
+.tecla[data-note="sol-sust"] {
+  left: 55%;
 }
 
-#teclaNegra5 {
-  position: absolute;
-  right: -35%;
+.tecla[data-note="la-sust"] {
+  left: 62.5%;
 }
 
 /*Cerca*/
@@ -254,6 +244,6 @@ button {
   border: none;
 }
 
-button:hover{
-    background-color: #a82424;
-  }
+button:hover {
+  background-color: #a82424;
+}

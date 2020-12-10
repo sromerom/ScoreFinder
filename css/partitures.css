@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #d22f2e;
+  height: 76px;
+  align-items: center;
+  color: white;
+}
+
+header div h1 {
+  font-family: "Lobster", cursive;
+  margin-left: 15px;
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  margin-right: 15px;
+}
+
+main {
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+#taula table {
+  width: 100%;
+  table-layout: fixed;
+  overflow-wrap: break-word;
+}
+button {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+button {
+  background-color: #d22f2e;
+  border-radius: 2px;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+
+button:hover {
+  background-color: #a82424;
+}
