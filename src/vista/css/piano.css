@@ -166,23 +166,23 @@ h1 {
   z-index: 3;
 }
 
-.tecla[data-note="do-sust"] {
+.tecla[data-note="Do-sust"] {
   left: 24.5%;
 }
 
-.tecla[data-note="re-sust"] {
+.tecla[data-note="Re-sust"] {
   left: 32%;
 }
 
-.tecla[data-note="fa-sust"] {
+.tecla[data-note="Fa-sust"] {
   left: 47.5%;
 }
 
-.tecla[data-note="sol-sust"] {
+.tecla[data-note="Sol-sust"] {
   left: 55%;
 }
 
-.tecla[data-note="la-sust"] {
+.tecla[data-note="La-sust"] {
   left: 62.5%;
 }
 
@@ -217,6 +217,7 @@ h1 {
 }
 
 #cerca p {
+  margin: 0px 40px;
   margin-top: 20px;
   margin-bottom: 10px;
 }

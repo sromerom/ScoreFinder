@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/piano.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../assets/images/favicon-256x256.png"
+    />
+    <title>Piano</title>
+  </head>
+  <body>
+    <main>
+      <h1>Score Finder</h1>
+      <section id="piano">
+        <div class="tecles">
+          <div class="tecla" data-note="Do"></div>
+          <div class="tecla sust" data-note="Do-sust"></div>
+          <div class="tecla" data-note="Re"></div>
+          <div class="tecla sust" data-note="Re-sust"></div>
+          <div class="tecla" data-note="Mi"></div>
+          <div class="tecla" data-note="Fa"></div>
+          <div class="tecla sust" data-note="Fa-sust"></div>
+          <div class="tecla" data-note="Sol"></div>
+          <div class="tecla sust" data-note="Sol-sust"></div>
+          <div class="tecla" data-note="La"></div>
+          <div class="tecla sust" data-note="La-sust"></div>
+          <div class="tecla" data-note="Si"></div>
+          <div class="tecla" data-note="Do7"></div>
+        </div>
+      </section>
+
+      <div id="containerCerca">
+        <section id="cerca">
+          <h2>CERCANT...</h2>
+          <p></p>
+          <button id="deleteNotes">Esborrar</button>
+        </section>
+        <section id="resultats">
+          <h2>RESULTATS:</h2>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="./js/piano.js"></script>
+  </body>
+</html>
