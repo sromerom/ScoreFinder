@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/partitures.css" />
     <link rel="icon" 
     type="image/png" 
-    href="./resources/images/favicon-256x256.png">
+    href="../../assets/images/favicon-256x256.png">
     <title>Partitura</title>
   </head>
   <body>
@@ -16,21 +16,27 @@
       </div>
     </header>
     <div id="displayError"></div>
-    <form id="desaPartitura" action="http://www.esliceu.com" method="POST">
+    <form id="desaPartitura" method="POST">
+      <input type="hidden">
       <label for="titol">Titol</label>
       <input type="text" name="titol" / required>
       <label for="idiomaOriginal"></label>
       <select name="idiomaOriginal">
-        <option value="catala">Català</option>
+        <!-- <option value="catala">Català</option>
         <option value="angles">Anglès</option>
-        <option value="frances">Francès</option>
+        <option value="frances">Francès</option>-->
       </select>
       <label for="lletraOriginal"></label>
-      <textarea name="lletraOriginal" cols="30" rows="10" required></textarea>
-      <label for="traduccioCatala"></label>
-      <textarea name="traduccioCatala" cols="30" rows="10" required></textarea>
+      <textarea id="lletraOriginal" name="lletraOriginal" cols="30" rows="10"></textarea>
+      <!-- <label for="traduccioCatala"></label>
+      //<textarea name="traduccioCatala" cols="30" rows="10" disabled></textarea>-->
       <button type="submit">Desar partitura</button>
     </form>
+    <section id="tradueixCatala">
+      <h2>Traduccio al català</h2>
+      <p></p>
+    </section>
   </body>
-  <script src="./js/partitura.js"></script>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="./js/partitura.js" type="module"></script>
 </html>

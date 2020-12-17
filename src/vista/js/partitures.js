@@ -1,7 +1,35 @@
 "use strict";
+import {
+  getPartitures,
+  deletePartitura,
+} from "../../servei/partituraService.js";
 
-(function () {
+(async function () {
+  document
+    .querySelector("#createButton")
+    .addEventListener("click", function () {
+      window.location.replace("partitura.html");
+    });
+
+  await createTable();
+  let allDeletes = document.querySelectorAll(".delete");
+  document.querySelector("#goToLogin").addEventListener("click", openWindow);
+
+  allDeletes.forEach((actualDelete) => {
+    actualDelete.addEventListener("click", dialog);
+  });
+})();
+
+async function createTable() {
+  const partitures = await getPartitures();
   const taula = document.querySelector("#taula");
+
+  if (document.querySelector("#taula table") === null) {
+    console.log("Creamos sin borrar");
+  } else {
+    console.log("Borramos y creamos");
+    document.querySelector("#taula table").remove();
+  }
   const table = document.createElement("TABLE");
 
   //Capçalera
@@ -19,48 +47,34 @@
   table.appendChild(espais);
 
   //Contingut
-  for (let i = 0; i < 100; i++) {
+
+  partitures.forEach((partitura) => {
     const trContent = document.createElement("TR");
     const titol = document.createElement("TD");
     const idioma = document.createElement("TD");
-
-    if (i === 0) {
-      titol.innerText = "La Balanguera";
-      idioma.innerText = "ca";
-    } else if (i === 1) {
-      titol.innerText = "Merry Christmas";
-      idioma.innerText = "en";
-    } else if (i === 2) {
-      titol.innerText = "Frère Jacques";
-      idioma.innerText = "fr";
-    } else {
-      titol.innerText = "Sant Antoni i el Dimoni";
-      idioma.innerText = "ca";
-    }
-
+    titol.innerText = partitura.titol;
+    idioma.innerText = partitura.idiomaoriginal;
     const options = document.createElement("TD");
-    options.innerHTML =
-      '<a href="#"><i class="fas fa-edit"></i>Editar</a><a class="delete" href="#"><i class="fas fa-trash"></i>Esborrar</a>';
+    options.innerHTML = `<a href="partitura.html?idpartitura=${partitura.idpartitura}"><i class="fas fa-edit"></i>Editar</a> <a data-partituraid="${partitura.idpartitura}" class="delete" href="#"><i class="fas fa-trash"></i>Esborrar</a>`;
     trContent.appendChild(titol);
     trContent.appendChild(idioma);
     trContent.appendChild(options);
     table.appendChild(trContent);
-  }
+  });
 
   taula.appendChild(table);
-})();
-
-let allDeletes = document.querySelectorAll(".delete");
-document.querySelector("#goToLogin").addEventListener("click", openWindow);
-allDeletes.forEach((actualDelete) => {
-  actualDelete.addEventListener("click", dialog);
-});
-
-function dialog() {
-  let confirm = window.confirm("Està segurt que vol esborrar l'element 4?");
+}
+async function dialog(e) {
+  const partituraid = e.target.dataset.partituraid;
+  console.log(partituraid);
+  let confirm = window.confirm(
+    `Està segurt que vol esborrar la partitura ${partituraid}?`
+  );
 
   if (confirm) {
+    await deletePartitura(partituraid);
     alert("Element esborrat!");
+    await createTable();
   } else {
     alert("Has cancel·lat l'acció.");
   }

@@ -7,7 +7,7 @@ let partitures = [];
   console.log(partitures);
 })();
 
-async function getPartitures() {
+export async function getPartitures() {
   const fetchPartitures = await fetch(
     "http://server247.cfgs.esliceu.net/piano/nologin/score/list",
     {
@@ -24,6 +24,79 @@ async function getPartitures() {
     partituresSenseFiltrar
   );
   return partituresFiltrades;
+}
+
+export async function getPartituresById(idpartitura) {
+  const fetchPartitura = await fetch(
+    "http://server247.cfgs.esliceu.net/piano/nologin/score/get",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        id: idpartitura,
+      }),
+      headers: {
+        //"Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  const partitura = await fetchPartitura.json();
+  return partitura;
+}
+
+export async function desaPartitura(
+  idpartitura,
+  name,
+  partituraoriginal,
+  partituratraduccio,
+  idiomaoriginal,
+  idiomatraduccio,
+  notes
+) {
+  const score = {
+    idpartitura: idpartitura,
+    name: name,
+    partituraoriginal: partituraoriginal,
+    partituratraduccio: partituratraduccio,
+    idiomaoriginal: idiomaoriginal,
+    idiomatraduccio: idiomatraduccio,
+    notes: notes,
+  };
+  console.log(score);
+
+  const fetchPartitura = await fetch(
+    "http://server247.cfgs.esliceu.net/piano/nologin/score/save",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        score: score,
+      }),
+      headers: {
+        //"Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  console.log(fetchPartitura.status);
+}
+export async function deletePartitura(partituraid) {
+  const fetchPartitura = await fetch(
+    "http://server247.cfgs.esliceu.net/piano/nologin/score/delete",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        idpartitura: partituraid,
+      }),
+      headers: {
+        //"Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  console.log(await fetchPartitura.text());
 }
 
 //id, figura, alteracio, nom, ordre
